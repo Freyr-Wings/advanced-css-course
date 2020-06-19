@@ -73,6 +73,9 @@ body {
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+
+    /* avoid animation shaking */
+    backface-visibility: hidden;
 }
 
 .heading-primary-main {
@@ -84,6 +87,16 @@ body {
     font-size: 60px;
     font-weight: 700;
     letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function */
+    animation-timing-function: ease-out;
+
+    /* 
+    animation-delay: 3s; 
+    animation-iteration-count: 3;
+    */
 }
 
 .heading-primary-sub {
@@ -91,4 +104,51 @@ body {
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 17.4px;
+
+    animation: moveInRight 1s ease-out;
+}
+
+
+@keyframes moveInLeft {
+    /* at the start */
+    0% {
+        opacity: 0;
+
+        /* x direction is from left to right, y from top to bottom */
+        transform: translateX(-100px);
+    }
+
+    /* 60% {
+        transform: translateX(-50px) rotate(120deg);
+    } */
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    /* at the end */
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    /* at the start */
+    0% {
+        opacity: 0;
+
+        /* x direction is from left to right, y from top to bottom */
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    /* at the end */
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
