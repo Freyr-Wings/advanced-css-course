@@ -140,11 +140,8 @@ body {
 }
 
 @keyframes moveInRight {
-    /* at the start */
     0% {
         opacity: 0;
-
-        /* x direction is from left to right, y from top to bottom */
         transform: translateX(100px);
     }
 
@@ -152,10 +149,21 @@ body {
         transform: translateX(-10px);
     }
 
-    /* at the end */
     100% {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -177,6 +185,8 @@ body {
 
     /* property for tranform in pseudo classes */
     transition: all .2s;
+
+    position: relative;
 }
 
 .btn:hover {
@@ -196,6 +206,41 @@ body {
     color: #777;
 }
 
+/* psuedo element */
+.btn::after {
+    /* must specify content, even empty */
+    content: "";
+
+    /* should look the same as the button */
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+
+    /* put this element behind the true button */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom .5s ease-out .75s;
+
+    /* set the style to 0% before the animation start */
+    animation-fill-mode: backwards;
+}
 
 
 
