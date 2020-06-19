@@ -68,6 +68,10 @@ body {
     is the positions assigned above
     shift 50% of this box back*/
     transform: translate(-50%, -50%);
+
+    /* move button to center */
+    text-align: center;
+
 }
 
 .heading-primary {
@@ -76,6 +80,8 @@ body {
 
     /* avoid animation shaking */
     backface-visibility: hidden;
+
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -152,3 +158,45 @@ body {
         transform: translateX(0);
     }
 }
+
+/* psuedo class */
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+
+    /* no underline */
+    text-decoration: none;
+
+    /* 15 for top and bottom */
+    padding: 15px 40px;
+
+    /* always do this if need padding */
+    display: inline-block;
+
+    border-radius: 100px;
+
+    /* property for tranform in pseudo classes */
+    transition: all .2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+
+    /* x y blur color */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+
+
+
+
