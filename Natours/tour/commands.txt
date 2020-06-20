@@ -2,3 +2,7 @@ npm init
 npm install node-sass --save-dev
 // npm install  // when only package.json exists
 // npm install live-server -g // install globally
+
+// when developing, open two terminal
+npm run compile:sass
+live-server
