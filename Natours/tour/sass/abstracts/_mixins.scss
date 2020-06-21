@@ -1,4 +1,5 @@
 @mixin clearfix {
+    // overflow: auto; can also do this
     &::after {
         content: "";
         display: table;
