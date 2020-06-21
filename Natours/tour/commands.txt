@@ -6,3 +6,66 @@ npm install node-sass --save-dev
 // when developing, open two terminal
 npm run compile:sass
 live-server
+
+7-1 ARCHITECTURE
+
+BASE: This file will be for the real low level basics,
+such as resets and styles for the HTML
+and body element selectors.
+Note this file should be a partial
+so we can later import it into the main SASS file.
+
+ABSTRACTS: In this folder we're only going to put code
+that's not going to output any css.
+We already saw what type of code is that:
+variables, mixins, and stuff like that.
+
+COMPONENTS: In that folder we're then going to create
+one file for each of our components.
+Remember, that components are our reusable building blocks
+that make up our website or apps.
+They should also be usable anywhere on the page
+so that they are completely independent
+and held together by the layout of the page.
+
+LAYOUT: we also need a layout folder for
+each piece of the global layout of the entire project.
+In the layout folder, we're going to have a
+global footer, header, et cetera...so stuff like that.
+
+PAGE: if you have very specific styles
+for a specific page, like for example, a homepage;
+we can then create a new file for that specific page
+
+THEME: web apps with different themes
+VENDORS: put third party css. e.g. bootstrp
+
+cd sass
+
+mkdir base
+cd base
+touch _base.scss _animations.scss _typography.scss _utilities.scss
+cd ..
+
+mkdir abstracts
+cd abstracts
+touch _variables.scss _mixins.scss _functions.scss
+cd ..
+
+mkdir components
+mkdir layout
+mkdir pages
+cd pages
+touch _home.scss
+cd ..
+
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/base";
+@import "base/animations";
+@import "base/typography";
+@import "base/utilities";
+
+@import "pages/home";

@@ -1,0 +1,20 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+/* change all px to rem */
+html {
+    /* default font size is 16px */
+    font-size: 62.5%; // act as settings instead of typography, it defines what 1rem is
+}
+
+body {
+    /* what this does is to change the box model
+    so that the borders and the paddings are no longer added
+    to the total width or the total height */
+    box-sizing: border-box;
+}

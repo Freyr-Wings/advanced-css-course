@@ -1,0 +1,78 @@
+.btn {
+    /* psuedo class */
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+
+        /* no underline */
+        text-decoration: none;
+
+        /* 15 for top and bottom */
+        padding: 1.5rem 4rem;
+
+        /* always do this if need padding */
+        display: inline-block;
+
+        border-radius: 10rem;
+
+        /* property for tranform in pseudo classes */
+        transition: all .2s;
+
+        position: relative;
+
+        font-size: 1.6rem;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+
+        /* x y blur color */
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    /* psuedo element */
+    &::after {
+        /* must specify content, even empty */
+        content: "";
+
+        /* should look the same as the button */
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+
+        /* put this element behind the true button */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        transition: all .4s;
+    }
+
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s;
+
+        /* set the style to 0% before the animation start */
+        animation-fill-mode: backwards;
+    }
+}
